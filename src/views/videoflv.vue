@@ -1,5 +1,5 @@
 <template>
-    <div class="flv">
+    <div class="videoflv">
         <video id="videoElement" class="centeredVideo" autoplay controls muted>
             Your browser is too old which doesn't support HTML5 video.
         </video>
@@ -20,24 +20,8 @@
             self.flv_load(self.url);
         },
         methods: {
-            myBrowser() {
-                var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
-                var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
-                var isIE = userAgent.indexOf("Trident") > -1 && !isOpera; //判断是否IE浏览器
-                var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
-                var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
-                var isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
-                var isChrome = userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
-                if (isIE) return "IE";
-                if (isOpera) return "Opera";
-                if (isEdge) return "Edge";
-                if (isFF) return "FF";
-                if (isSafari) return "Safari";
-                if (isChrome) return "Chrome";
-            },
             flv_load(o) {
                 var self = this;
-                console.log('当前浏览器：', self.myBrowser());
                 console.log('浏览器是否支持flv: ' + flvjs.isSupported());
                 console.log('浏览器支持flv参数: ', flvjs.getFeatureList());
                 if (self.player) self.flv_destroy();

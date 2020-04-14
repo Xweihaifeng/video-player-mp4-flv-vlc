@@ -5,13 +5,13 @@ Vue.use(VueRouter);
 
 const routes = [{
         path: "/",
-        name: "Home",
-        component: () => import("../views/Home.vue")
+        name: "videomp4",
+        component: () => import("../views/videomp4.vue")
     },
     {
-        path: "/about",
-        name: "About",
-        component: () => import("../views/About.vue")
+        path: "/videoflv",
+        name: "videoflv",
+        component: () => import("../views/videoflv.vue")
     },
     {
         path: "/videoie",

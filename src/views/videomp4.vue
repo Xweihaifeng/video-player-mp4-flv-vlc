@@ -1,5 +1,5 @@
 <template>
-    <div class="video-js">
+    <div class="videomp4">
         <video-player class="video-player vjs-custom-skin" :playsinline="true" :options="playerOptions"></video-player>
     </div>
 </template>
@@ -18,13 +18,14 @@
                     aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
                     playbackRates: [0.5, 1.0, 1.5, 2.0], //可选择的播放速度
                     poster: "/poster.png", //你的封面地址
+                    notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
                     controlBar: {
-                        timeDivider: true, //当前时间和持续时间的分隔符
-                        durationDisplay: true, //显示持续时间
+                        timeDivider: false, //当前时间和持续时间的分隔符
+                        durationDisplay: false, //显示持续时间
                         currentTimeDisplay: true, // 当前时间
                         remainingTimeDisplay: false, //是否显示剩余时间功能
                         playToggle: true, // 暂停和播放键
-                        volumeControl: true, // 声音控制键
+                        volumeControl: false, // 声音控制键
                         progressControl: true, // 进度条
                         fullscreenToggle: true // 全屏按钮
                     },
@@ -32,23 +33,23 @@
                         type: 'video/mp4',
                         src: '/v.f30.mp4'
                     }],
-                    /* sources: [{
-                        type: 'video/flv',
-                        src: 'http://223.70.215.65:22000/live?port=1935&app=live&stream=05428769630911160101'
-                    }], */
-                    /* sources: [{
-                        type: 'rtmp/flv',
-                        src: 'rtmp://223.70.215.65:22000/live/05428769630275010101'
-                    }], */
-                    notSupportedMessage: '此视频暂无法播放，请稍后再试' // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
                 }
+            }
+        },
+        mounted() {
+            var self = this;
+            self.video_options1();
+        },
+        methods: {
+            video_options1() {
+                
             }
         }
     }
 </script>
 
 <style scoped>
-    .video-js {
+    .videomp4 {
         width: 100%;
         height: 100%;
     }
