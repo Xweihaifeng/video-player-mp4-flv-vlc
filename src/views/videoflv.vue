@@ -1,9 +1,11 @@
 <template>
-    <div class="videoflv">
-        <video id="videoElement" class="centeredVideo" autoplay controls muted>
-            Your browser is too old which doesn't support HTML5 video.
-        </video>
-    </div>
+    <section class="video">
+        <div class="video-flv">
+            <video id="videoElement" class="centeredVideo" autoplay controls muted>
+                Your browser is too old which doesn't support HTML5 video.
+            </video>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -12,7 +14,7 @@
         data() {
             return {
                 player: null,
-                url: 'http://223.70.215.65:22000/live?port=1935&app=live&stream=05428769630911160101'
+                url: 'http://223.70.215.65:22000/live?port=22005&app=live&stream=05428769630353200101'
             }
         },
         mounted() {
@@ -25,7 +27,6 @@
                 console.log('浏览器是否支持flv: ' + flvjs.isSupported());
                 console.log('浏览器支持flv参数: ', flvjs.getFeatureList());
                 if (self.player) self.flv_destroy();
-
                 self.player = flvjs.createPlayer({
                     type: 'flv',
                     isLive: true,
@@ -55,7 +56,15 @@
 </script>
 
 <style scoped>
+    .video-flv {
+        width: 800px;
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+    }
+
     .centeredVideo {
         width: 100%;
+        height: 100%;
     }
 </style>
